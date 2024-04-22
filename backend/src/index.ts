@@ -12,7 +12,7 @@ app.use(cookieParser());
 dotenv.config();
 const MONGO_URI = process.env.URI;
 if (!MONGO_URI) {
-  throw new Error("No uri");
+  throw new Error("Database URI not provided");
 }
 const PORT = process.env.PORT || 3000;
 mongoose

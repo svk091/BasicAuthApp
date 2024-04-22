@@ -11,7 +11,6 @@ const userRoute = express.Router();
 const signupSchema = z.object({
   email: z.string().email(),
   firstName: z.string(),
-  middleName: z.string().optional(),
   lastName: z.string(),
   password: z.string(),
 });
@@ -37,7 +36,6 @@ userRoute.post("/signup", async (req, res) => {
   const newUser = await User.create({
     email: req.body.email,
     firstName: req.body.firstName,
-    middleName: req.body.middleName,
     lastName: req.body.lastName,
     password: hashedPassword,
   });
